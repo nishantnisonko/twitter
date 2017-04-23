@@ -79,8 +79,12 @@ class TweetViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        profilePictureView.layer.cornerRadius = 3
-        userNameLabel.preferredMaxLayoutWidth = userNameLabel.frame.size.width
+        if(profilePictureView != nil){
+            profilePictureView.layer.cornerRadius = 3
+        }
+        if userNameLabel != nil {
+            userNameLabel.preferredMaxLayoutWidth = userNameLabel.frame.size.width
+        }
         // Initialization code
     }
     

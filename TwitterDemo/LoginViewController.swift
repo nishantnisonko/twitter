@@ -16,6 +16,7 @@ class LoginViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+//    var window: UIWindow?
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -28,7 +29,11 @@ class LoginViewController: UIViewController {
         let client = TwitterClient.sharedInstance
         
         client?.login(success: {
-                        
+            
+
+            
+//            self.window?.rootViewController = hvc
+
             self.performSegue(withIdentifier: "loginSegue", sender: nil)
             
         }, failure: { (error: Error) in

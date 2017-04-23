@@ -17,12 +17,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let hvc = storyboard.instantiateViewController(withIdentifier: "HamBurgerViewController") as! HamBurgerViewController
+        
+        let mvc = storyboard.instantiateViewController(withIdentifier: "MenuViewController") as! MenuViewController
+        
+        mvc.hamBurgerViewController = hvc
+        hvc.menuViewController = mvc
+
+        
         if User.currentUser != nil {
             print("current user")
-            let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "TweetsNavigationController")
-            window?.rootViewController = vc
-            
+//            let vc = storyboard.instantiateViewController(withIdentifier: "TweetsNavigationController")
+            window?.rootViewController = hvc
         }
         
         NotificationCenter.default.addObserver(forName: NSNotification.Name(rawValue: User.userDidLogoutNotification), object: nil, queue: OperationQueue.main) { (Notification) in

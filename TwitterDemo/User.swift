@@ -14,6 +14,9 @@ class User: NSObject {
     var screenName: String?
     var profileURL: URL?
     var tagline : String?
+    var tweetCount : Int
+    var followingCount : Int
+    var followersCount: Int
     
     var dictionary: NSDictionary?
     static var userDidLogoutNotification = "UserDidLogout"
@@ -29,6 +32,11 @@ class User: NSObject {
         
         let userHandleStr = dictionary["screen_name"] as? String
         screenName = "@\(userHandleStr!)"
+        
+        tweetCount = (dictionary["statuses_count"] as? Int)!
+        followingCount = (dictionary["friends_count"] as? Int)!
+        followersCount = (dictionary["followers_count"] as? Int)!
+
     }
     
     
