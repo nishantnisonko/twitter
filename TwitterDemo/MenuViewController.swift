@@ -25,12 +25,19 @@ class MenuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
         tableView.delegate = self
         tableView.dataSource = self
         
+        tableView.estimatedRowHeight = 100
+        tableView.rowHeight = UITableViewAutomaticDimension
+        
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         homeTimeLineNavigationController = storyboard.instantiateViewController(withIdentifier: "TweetsNavigationController")
         viewControllers.append(homeTimeLineNavigationController)
         
         profileNavigationController = storyboard.instantiateViewController(withIdentifier: "ProfileNavigationController")
         viewControllers.append(profileNavigationController)
+        
+        mentionsNavigationController = storyboard.instantiateViewController(withIdentifier: "MentionsViewController")
+        viewControllers.append(mentionsNavigationController)
+        
         
         hamBurgerViewController.contentViewController = homeTimeLineNavigationController
 
@@ -53,7 +60,7 @@ class MenuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
+//        tableView.deselectRow(at: indexPath, animated: true)
         hamBurgerViewController.contentViewController = viewControllers[indexPath.row]
     }
     

@@ -39,6 +39,10 @@ class HamBurgerViewController: UIViewController {
                 self.leftMarginConstraint.constant = 0
                 self.view.layoutIfNeeded()
             }
+            contentView.layer.shadowColor = UIColor.black.cgColor
+            contentView.layer.shadowOpacity = 1
+            contentView.layer.shadowOffset = CGSize.zero
+            contentView.layer.shadowRadius = 10
         }
     }
     
@@ -74,8 +78,8 @@ class HamBurgerViewController: UIViewController {
         } else if sender.state == .ended {
             
             UIView.animate(withDuration: 0.3, animations: { 
-                if velocity.x>0 {
-                    self.leftMarginConstraint.constant = self.view.frame.size.width - 70
+                if velocity.x > 0 {
+                    self.leftMarginConstraint.constant = self.view.frame.size.width - 160
                 }else{
                     self.leftMarginConstraint.constant = 0
                 }

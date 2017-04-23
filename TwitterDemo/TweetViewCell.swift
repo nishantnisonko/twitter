@@ -9,6 +9,9 @@
 import UIKit
 
 class TweetViewCell: UITableViewCell {
+    
+    
+    
     @IBOutlet weak var profilePictureView: UIImageView!
     
     @IBOutlet weak var userNameLabel: UILabel!
@@ -22,6 +25,19 @@ class TweetViewCell: UITableViewCell {
     @IBOutlet weak var retweetImageView: UIButton!
     
     @IBOutlet weak var favouriteButton: UIButton!
+//    @IBOutlet weak var profilePictureView: UIImageView!
+//    
+//    @IBOutlet weak var userNameLabel: UILabel!
+//    
+//    @IBOutlet weak var tweetTextLabel: UILabel!
+//    
+//    @IBOutlet weak var userHandleLabel: UILabel!
+//    
+//    @IBOutlet weak var timeStampLabel: UILabel!
+//    
+//    @IBOutlet weak var retweetImageView: UIButton!
+//    
+//    @IBOutlet weak var favouriteButton: UIButton!
     
     var refreshTimeLine: (() -> Void)?
 
@@ -89,6 +105,9 @@ class TweetViewCell: UITableViewCell {
     }
     
     
+//    @IBAction func onReplyButton(_ sender: Any) {
+//        self.performSegue(withIdentifier: "replyTweetSegue", sender: sender)
+//    }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

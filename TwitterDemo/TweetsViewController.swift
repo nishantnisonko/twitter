@@ -30,8 +30,11 @@ class TweetsViewController: UIViewController,UITableViewDelegate, UITableViewDat
         
         tableView.delegate=self
         tableView.dataSource=self
-        tableView.estimatedRowHeight = 100
-        tableView.rowHeight = UITableViewAutomaticDimension
+        let cellNib = UINib(nibName: "TweetViewCell", bundle: Bundle.main)
+        tableView.register(cellNib, forCellReuseIdentifier: "TweetViewCell")
+
+//        tableView.estimatedRowHeight = 100
+//        tableView.rowHeight = UITableViewAutomaticDimension
         
         reloadTimeLine(refreshControl)
     }
@@ -65,6 +68,10 @@ class TweetsViewController: UIViewController,UITableViewDelegate, UITableViewDat
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated:true)
+        let cell = tableView.cellForRow(at: indexPath)
+
+        self.performSegue(withIdentifier: "tweetDetailSegue", sender: cell)
+
     }
 
     
@@ -84,7 +91,7 @@ class TweetsViewController: UIViewController,UITableViewDelegate, UITableViewDat
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showTweet" {
+        if segue.identifier == "tweetDetailSegue" {
             let cell = sender as! UITableViewCell
             var indexPath = tableView.indexPath(for: cell)
             let tweet = tweets[(indexPath?.row)!]
