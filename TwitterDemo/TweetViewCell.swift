@@ -61,10 +61,10 @@ class TweetViewCell: UITableViewCell {
                 favouriteButton.imageView?.image = favorited
 
             }
-            let formatter = DateFormatter()
-            formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-            let myStringafd = formatter.string(from: tweet.timeStamp!)
-            timeStampLabel.text = myStringafd
+//            let formatter = DateFormatter()
+//            formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+//            let myStringafd = formatter.string(from: tweet.timeStamp!)
+//            timeStampLabel.text = myStringafd
             
         }
     }

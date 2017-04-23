@@ -21,8 +21,8 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         let cellNib = UINib(nibName: "TweetViewCell", bundle: Bundle.main)
         tableView.register(cellNib, forCellReuseIdentifier: "TweetViewCell")
 
-//        tableView.estimatedRowHeight = 100
-//        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 300
+        tableView.rowHeight = UITableViewAutomaticDimension
         
         TwitterClient.sharedInstance?.accountTimeline(success: { (tweets: [Tweet]) in
             self.tweets = tweets

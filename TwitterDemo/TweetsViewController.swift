@@ -33,8 +33,8 @@ class TweetsViewController: UIViewController,UITableViewDelegate, UITableViewDat
         let cellNib = UINib(nibName: "TweetViewCell", bundle: Bundle.main)
         tableView.register(cellNib, forCellReuseIdentifier: "TweetViewCell")
 
-//        tableView.estimatedRowHeight = 100
-//        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 100
+        tableView.rowHeight = UITableViewAutomaticDimension
         
         reloadTimeLine(refreshControl)
     }
