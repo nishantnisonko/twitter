@@ -16,18 +16,18 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="@manaswini" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="erj-na-ayb">
-                    <rect key="frame" x="242.5" y="22" width="70.5" height="14.5"/>
+                    <rect key="frame" x="242.5" y="28" width="70.5" height="14.5"/>
                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                     <color key="textColor" white="0.0" alpha="0.29538178520000002" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tweet Text" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m0m-DZ-NWY">
-                    <rect key="frame" x="95" y="47" width="354" height="18"/>
+                    <rect key="frame" x="95" y="52.5" width="354" height="18"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="H3x-pK-6DC">
+                <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="H3x-pK-6DC">
                     <rect key="frame" x="10" y="20" width="70" height="70"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="70" id="KH4-hN-jWm"/>
@@ -42,12 +42,6 @@
                     </constraints>
                     <state key="normal" title="Button" image="retweet-action"/>
                 </button>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Manaswini Mohanty" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q5F-fP-qWr">
-                    <rect key="frame" x="95" y="20" width="137.5" height="17"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7hY-ug-NGE">
                     <rect key="frame" x="95" y="101" width="15" height="15"/>
                     <constraints>
@@ -64,25 +58,36 @@
                     </constraints>
                     <state key="normal" title="Button" image="like-action"/>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Mb-mX-ft3">
+                    <rect key="frame" x="95" y="20" width="138" height="29"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                    <state key="normal" title="Manaswini Mohanty">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="onProfileName:" destination="iN0-l3-epB" eventType="touchUpInside" id="YV1-fJ-t5X"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="m0m-DZ-NWY" firstAttribute="leading" secondItem="q5F-fP-qWr" secondAttribute="leading" id="1r5-Cr-cmn"/>
                 <constraint firstAttribute="bottom" secondItem="7hY-ug-NGE" secondAttribute="bottom" constant="15" id="2tE-La-srf"/>
                 <constraint firstItem="ej5-6J-Vnd" firstAttribute="leading" secondItem="yed-gh-JhZ" secondAttribute="trailing" constant="65" id="Dg7-uK-Fyy"/>
-                <constraint firstItem="7hY-ug-NGE" firstAttribute="leading" secondItem="q5F-fP-qWr" secondAttribute="leading" id="HQt-Wv-7j2"/>
+                <constraint firstItem="m0m-DZ-NWY" firstAttribute="leading" secondItem="9Mb-mX-ft3" secondAttribute="leading" id="M3s-yP-sAA"/>
+                <constraint firstItem="erj-na-ayb" firstAttribute="leading" secondItem="9Mb-mX-ft3" secondAttribute="trailing" constant="10" id="QqP-al-0Du"/>
+                <constraint firstItem="9Mb-mX-ft3" firstAttribute="leading" secondItem="H3x-pK-6DC" secondAttribute="trailing" constant="15" id="RgN-r0-MaJ"/>
                 <constraint firstItem="yed-gh-JhZ" firstAttribute="leading" secondItem="7hY-ug-NGE" secondAttribute="trailing" constant="65" id="RoN-lW-5Q8"/>
                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="H3x-pK-6DC" secondAttribute="bottom" constant="20" id="UVJ-kP-YmZ"/>
-                <constraint firstItem="m0m-DZ-NWY" firstAttribute="top" secondItem="q5F-fP-qWr" secondAttribute="bottom" constant="10" id="Uw7-ss-Orw"/>
                 <constraint firstItem="H3x-pK-6DC" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="aBw-lt-8DJ"/>
                 <constraint firstItem="ej5-6J-Vnd" firstAttribute="baseline" secondItem="7hY-ug-NGE" secondAttribute="baseline" id="aWV-a5-Vzs"/>
-                <constraint firstItem="q5F-fP-qWr" firstAttribute="leading" secondItem="H3x-pK-6DC" secondAttribute="trailing" constant="15" id="cfU-f3-JDk"/>
-                <constraint firstItem="erj-na-ayb" firstAttribute="baseline" secondItem="q5F-fP-qWr" secondAttribute="baseline" id="dXK-a2-HZN"/>
+                <constraint firstItem="erj-na-ayb" firstAttribute="baseline" secondItem="9Mb-mX-ft3" secondAttribute="baseline" id="bWJ-bY-fQJ"/>
                 <constraint firstItem="yed-gh-JhZ" firstAttribute="baseline" secondItem="7hY-ug-NGE" secondAttribute="baseline" id="eTz-rr-wfY"/>
+                <constraint firstItem="m0m-DZ-NWY" firstAttribute="leading" secondItem="H3x-pK-6DC" secondAttribute="trailing" constant="15" id="exs-th-IkN"/>
+                <constraint firstItem="7hY-ug-NGE" firstAttribute="leading" secondItem="m0m-DZ-NWY" secondAttribute="leading" id="nY5-Rc-MLh"/>
+                <constraint firstItem="9Mb-mX-ft3" firstAttribute="top" secondItem="H3x-pK-6DC" secondAttribute="top" id="ouS-sf-2TO"/>
                 <constraint firstItem="H3x-pK-6DC" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="sQu-aO-EgW"/>
-                <constraint firstItem="erj-na-ayb" firstAttribute="leading" secondItem="q5F-fP-qWr" secondAttribute="trailing" constant="10" id="wIy-sK-uao"/>
+                <constraint firstItem="m0m-DZ-NWY" firstAttribute="top" secondItem="erj-na-ayb" secondAttribute="bottom" constant="10" id="vgd-hy-RS7"/>
                 <constraint firstItem="7hY-ug-NGE" firstAttribute="top" relation="greaterThanOrEqual" secondItem="m0m-DZ-NWY" secondAttribute="bottom" constant="15" id="wRe-vQ-zfb"/>
-                <constraint firstItem="q5F-fP-qWr" firstAttribute="top" secondItem="H3x-pK-6DC" secondAttribute="top" id="yQI-DV-HOo"/>
                 <constraint firstAttribute="trailing" secondItem="m0m-DZ-NWY" secondAttribute="trailing" constant="10" id="zOU-db-0C6"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -92,7 +97,7 @@
                 <outlet property="retweetImageView" destination="yed-gh-JhZ" id="kQq-gL-GPB"/>
                 <outlet property="tweetTextLabel" destination="m0m-DZ-NWY" id="4yN-mH-xQc"/>
                 <outlet property="userHandleLabel" destination="erj-na-ayb" id="fiU-gk-7Y5"/>
-                <outlet property="userNameLabel" destination="q5F-fP-qWr" id="Du6-bu-Y3a"/>
+                <outlet property="userNameButton" destination="9Mb-mX-ft3" id="Sb4-T2-Y87"/>
             </connections>
             <point key="canvasLocation" x="185.5" y="-176.5"/>
         </view>

@@ -14,8 +14,9 @@ class TweetViewCell: UITableViewCell {
     
     @IBOutlet weak var profilePictureView: UIImageView!
     
-    @IBOutlet weak var userNameLabel: UILabel!
+//    @IBOutlet weak var userNameLabel: UILabel!
     
+    @IBOutlet weak var userNameButton: UIButton!
     @IBOutlet weak var tweetTextLabel: UILabel!
     
     @IBOutlet weak var userHandleLabel: UILabel!
@@ -36,15 +37,17 @@ class TweetViewCell: UITableViewCell {
 //    @IBOutlet weak var timeStampLabel: UILabel!
 //    
 //    @IBOutlet weak var retweetImageView: UIButton!
-//    
+//
 //    @IBOutlet weak var favouriteButton: UIButton!
     
     var refreshTimeLine: (() -> Void)?
 
+    var showProfile: ((_ user:User) -> Void)?
     
     var tweet : Tweet!{
         didSet{
-            userNameLabel.text = tweet.userName
+//            userNameLabel.text = tweet.userName
+            userNameButton.setTitle(tweet.userName, for:.normal)
             tweetTextLabel.text = tweet.tweetText
             userHandleLabel.text = tweet.userHandle
             if tweet.profilePictureUrl != nil {
@@ -69,6 +72,18 @@ class TweetViewCell: UITableViewCell {
         }
     }
     
+    @IBAction func onProfileName(_ sender: Any) {
+        TwitterClient.sharedInstance?.userAccount(screenName: tweet.userHandle, success: { (user: User) in
+            if(self.showProfile != nil){
+                self.showProfile!(user)
+            }
+        }, failure: { (error:Error) in
+            
+        })
+//        if(showProfile != nil){
+//            self.showProfile!(tweet.userHandle)
+//        }
+    }
     
     @IBAction func onFavorite(_ sender: Any) {
         TwitterClient.sharedInstance?.favorite(tweetId: tweet.id, success: { (response: NSDictionary) in
@@ -98,9 +113,9 @@ class TweetViewCell: UITableViewCell {
         if(profilePictureView != nil){
             profilePictureView.layer.cornerRadius = 3
         }
-        if userNameLabel != nil {
-            userNameLabel.preferredMaxLayoutWidth = userNameLabel.frame.size.width
-        }
+//        if userNameButton != nil {
+//            userNameButton.preferredMaxLayoutWidth = userNameButton.frame.size.width
+//        }
         // Initialization code
     }
     

@@ -61,6 +61,9 @@ class MenuViewController: UIViewController,UITableViewDelegate,UITableViewDataSo
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        tableView.deselectRow(at: indexPath, animated: true)
+//        if (viewControllers[indexPath.row] === profileNavigationController){
+//            profileNavigationController.topViewController
+//        }
         hamBurgerViewController.contentViewController = viewControllers[indexPath.row]
     }
     

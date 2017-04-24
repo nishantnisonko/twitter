@@ -12,6 +12,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
 
     @IBOutlet weak var tableView: UITableView!
     var tweets: [Tweet] = []
+    var user: User = User.currentUser!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +25,11 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.estimatedRowHeight = 300
         tableView.rowHeight = UITableViewAutomaticDimension
         
-        TwitterClient.sharedInstance?.accountTimeline(success: { (tweets: [Tweet]) in
+//        if screenName == nil {
+//            screenName = User.currentUser?.screenName
+//        }
+        
+        TwitterClient.sharedInstance?.accountTimeline(screenName: user.screenName!, success: { (tweets: [Tweet]) in
             self.tweets = tweets
             self.tableView.reloadData()
         }, failure: { (error: Error) in
@@ -35,9 +40,12 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.cellForRow(at: indexPath)
+        tableView.deselectRow(at: indexPath, animated: true)
+        if(indexPath.section == 1) {
+            let cell = tableView.cellForRow(at: indexPath)
         
-        self.performSegue(withIdentifier: "profileTweetDetailSegue", sender: cell)
+            self.performSegue(withIdentifier: "profileTweetDetailSegue", sender: cell)
+        }
 
     }
     
@@ -76,7 +84,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ProfileViewCell", for: indexPath) as! ProfileViewCell
-            cell.user = User.currentUser
+            cell.user = user
             return cell
             
         } else {

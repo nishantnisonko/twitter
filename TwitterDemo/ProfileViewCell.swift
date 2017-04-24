@@ -17,6 +17,7 @@ class ProfileViewCell: UITableViewCell {
     @IBOutlet weak var tweetCountLabel: UILabel!
     @IBOutlet weak var followingCountLabel: UILabel!
     @IBOutlet weak var followersCountLabel: UILabel!
+    @IBOutlet weak var tagLine: UILabel!
     
     var user : User! {
         didSet{
@@ -28,6 +29,7 @@ class ProfileViewCell: UITableViewCell {
             if user.profileURL != nil {
                 profileImageView.setImageWith(user.profileURL!)
             }
+            tagLine.text = user.tagline
             
             
         }

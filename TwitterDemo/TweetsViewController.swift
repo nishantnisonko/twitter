@@ -17,7 +17,7 @@ class TweetsViewController: UIViewController,UITableViewDelegate, UITableViewDat
         
     }
     var tweets: [Tweet] = []
-    
+    var user: User!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -58,6 +58,10 @@ class TweetsViewController: UIViewController,UITableViewDelegate, UITableViewDat
         cell.accessoryType = .none
         cell.refreshTimeLine = {() -> Void in
             self.refreshTimeLine()
+        }
+        cell.showProfile = { (user:User) in
+            self.user = user
+            self.performSegue(withIdentifier: "showProfileSegue", sender: cell)
         }
         return cell
     }
@@ -118,6 +122,10 @@ class TweetsViewController: UIViewController,UITableViewDelegate, UITableViewDat
             vc.refreshTimeLine = {() -> Void in
                 self.refreshTimeLine()
             }
+        }else if (segue.identifier == "showProfileSegue"){
+            let vc = segue.destination as! ProfileViewController
+            
+            vc.user = user
         }
     }
     
